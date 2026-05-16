@@ -24,6 +24,7 @@ import coil.compose.AsyncImage
 import com.weathersnap.ui.weather.WeatherCard
 import com.weathersnap.domain.model.WeatherData
 import java.io.File
+import java.util.Date
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -163,13 +164,15 @@ fun ImagePreviewArea(imagePath: String?, onCapture: () -> Unit) {
                     Text("Tap to capture", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.secondary)
                 }
             } else {
-                AnimatedVisibility(visible = true, enter = fadeIn()) {
-                    AsyncImage(
-                        model = File(imagePath),
-                        contentDescription = "Captured Photo",
-                        modifier = Modifier.fillMaxSize().clip(RoundedCornerShape(16.dp)),
-                        contentScale = ContentScale.Crop
-                    )
+                Column {
+                    AnimatedVisibility(visible = true, enter = fadeIn()) {
+                        AsyncImage(
+                            model = File(imagePath),
+                            contentDescription = "Captured Photo",
+                            modifier = Modifier.fillMaxSize().clip(RoundedCornerShape(16.dp)),
+                            contentScale = ContentScale.Crop
+                        )
+                    }
                 }
             }
         }

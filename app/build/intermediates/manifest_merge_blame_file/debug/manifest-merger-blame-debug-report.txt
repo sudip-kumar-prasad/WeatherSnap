@@ -23,15 +23,15 @@
 16-->/Users/sudipkumarprasad/Desktop/WeatherSnap/app/src/main/AndroidManifest.xml:7:58-82
 17
 18    <permission
-18-->[androidx.core:core:1.12.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/4350874e3cb2da415aae12f588e03725/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+18-->[androidx.core:core:1.12.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/005dfc65b1dba7af90f83f5caed22443/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
 19        android:name="com.weathersnap.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
-19-->[androidx.core:core:1.12.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/4350874e3cb2da415aae12f588e03725/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+19-->[androidx.core:core:1.12.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/005dfc65b1dba7af90f83f5caed22443/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
 20        android:protectionLevel="signature" />
-20-->[androidx.core:core:1.12.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/4350874e3cb2da415aae12f588e03725/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+20-->[androidx.core:core:1.12.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/005dfc65b1dba7af90f83f5caed22443/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
 21
 22    <uses-permission android:name="com.weathersnap.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
-22-->[androidx.core:core:1.12.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/4350874e3cb2da415aae12f588e03725/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
-22-->[androidx.core:core:1.12.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/4350874e3cb2da415aae12f588e03725/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+22-->[androidx.core:core:1.12.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/005dfc65b1dba7af90f83f5caed22443/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+22-->[androidx.core:core:1.12.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/005dfc65b1dba7af90f83f5caed22443/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
 23
 24    <application
 24-->/Users/sudipkumarprasad/Desktop/WeatherSnap/app/src/main/AndroidManifest.xml:9:5-29:19
@@ -40,7 +40,7 @@
 26        android:allowBackup="true"
 26-->/Users/sudipkumarprasad/Desktop/WeatherSnap/app/src/main/AndroidManifest.xml:11:9-35
 27        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-27-->[androidx.core:core:1.12.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/4350874e3cb2da415aae12f588e03725/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+27-->[androidx.core:core:1.12.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/005dfc65b1dba7af90f83f5caed22443/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
 28        android:dataExtractionRules="@xml/data_extraction_rules"
 28-->/Users/sudipkumarprasad/Desktop/WeatherSnap/app/src/main/AndroidManifest.xml:12:9-65
 29        android:debuggable="true"
@@ -82,106 +82,106 @@
 50        Metadata will be merged from other manifests.
 51        -->
 52        <service
-52-->[androidx.camera:camera-core:1.3.2] /Users/sudipkumarprasad/.gradle/caches/transforms-3/69bc76c29293c1f4730f276d88f4a0e4/transformed/camera-core-1.3.2/AndroidManifest.xml:29:9-33:78
+52-->[androidx.camera:camera-core:1.3.2] /Users/sudipkumarprasad/.gradle/caches/transforms-3/49e2a1db19f49b4de2f5a730b7dae16f/transformed/camera-core-1.3.2/AndroidManifest.xml:29:9-33:78
 53            android:name="androidx.camera.core.impl.MetadataHolderService"
-53-->[androidx.camera:camera-core:1.3.2] /Users/sudipkumarprasad/.gradle/caches/transforms-3/69bc76c29293c1f4730f276d88f4a0e4/transformed/camera-core-1.3.2/AndroidManifest.xml:30:13-75
+53-->[androidx.camera:camera-core:1.3.2] /Users/sudipkumarprasad/.gradle/caches/transforms-3/49e2a1db19f49b4de2f5a730b7dae16f/transformed/camera-core-1.3.2/AndroidManifest.xml:30:13-75
 54            android:enabled="false"
-54-->[androidx.camera:camera-core:1.3.2] /Users/sudipkumarprasad/.gradle/caches/transforms-3/69bc76c29293c1f4730f276d88f4a0e4/transformed/camera-core-1.3.2/AndroidManifest.xml:31:13-36
+54-->[androidx.camera:camera-core:1.3.2] /Users/sudipkumarprasad/.gradle/caches/transforms-3/49e2a1db19f49b4de2f5a730b7dae16f/transformed/camera-core-1.3.2/AndroidManifest.xml:31:13-36
 55            android:exported="false" >
-55-->[androidx.camera:camera-core:1.3.2] /Users/sudipkumarprasad/.gradle/caches/transforms-3/69bc76c29293c1f4730f276d88f4a0e4/transformed/camera-core-1.3.2/AndroidManifest.xml:32:13-37
+55-->[androidx.camera:camera-core:1.3.2] /Users/sudipkumarprasad/.gradle/caches/transforms-3/49e2a1db19f49b4de2f5a730b7dae16f/transformed/camera-core-1.3.2/AndroidManifest.xml:32:13-37
 56            <meta-data
-56-->[androidx.camera:camera-camera2:1.3.2] /Users/sudipkumarprasad/.gradle/caches/transforms-3/69e95580daad070167b90561765f8a4d/transformed/camera-camera2-1.3.2/AndroidManifest.xml:30:13-32:89
+56-->[androidx.camera:camera-camera2:1.3.2] /Users/sudipkumarprasad/.gradle/caches/transforms-3/45ff7a8502aaa261e0c92b3d0785125b/transformed/camera-camera2-1.3.2/AndroidManifest.xml:30:13-32:89
 57                android:name="androidx.camera.core.impl.MetadataHolderService.DEFAULT_CONFIG_PROVIDER"
-57-->[androidx.camera:camera-camera2:1.3.2] /Users/sudipkumarprasad/.gradle/caches/transforms-3/69e95580daad070167b90561765f8a4d/transformed/camera-camera2-1.3.2/AndroidManifest.xml:31:17-103
+57-->[androidx.camera:camera-camera2:1.3.2] /Users/sudipkumarprasad/.gradle/caches/transforms-3/45ff7a8502aaa261e0c92b3d0785125b/transformed/camera-camera2-1.3.2/AndroidManifest.xml:31:17-103
 58                android:value="androidx.camera.camera2.Camera2Config$DefaultProvider" />
-58-->[androidx.camera:camera-camera2:1.3.2] /Users/sudipkumarprasad/.gradle/caches/transforms-3/69e95580daad070167b90561765f8a4d/transformed/camera-camera2-1.3.2/AndroidManifest.xml:32:17-86
+58-->[androidx.camera:camera-camera2:1.3.2] /Users/sudipkumarprasad/.gradle/caches/transforms-3/45ff7a8502aaa261e0c92b3d0785125b/transformed/camera-camera2-1.3.2/AndroidManifest.xml:32:17-86
 59        </service>
 60
 61        <provider
-61-->[androidx.emoji2:emoji2:1.3.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/6b777ac2430fa4b8d0891dd9930c8d92/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+61-->[androidx.emoji2:emoji2:1.3.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/e96811cde0d02f53d485e398a0c74e38/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
 62            android:name="androidx.startup.InitializationProvider"
-62-->[androidx.emoji2:emoji2:1.3.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/6b777ac2430fa4b8d0891dd9930c8d92/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+62-->[androidx.emoji2:emoji2:1.3.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/e96811cde0d02f53d485e398a0c74e38/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
 63            android:authorities="com.weathersnap.androidx-startup"
-63-->[androidx.emoji2:emoji2:1.3.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/6b777ac2430fa4b8d0891dd9930c8d92/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+63-->[androidx.emoji2:emoji2:1.3.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/e96811cde0d02f53d485e398a0c74e38/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
 64            android:exported="false" >
-64-->[androidx.emoji2:emoji2:1.3.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/6b777ac2430fa4b8d0891dd9930c8d92/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+64-->[androidx.emoji2:emoji2:1.3.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/e96811cde0d02f53d485e398a0c74e38/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
 65            <meta-data
-65-->[androidx.emoji2:emoji2:1.3.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/6b777ac2430fa4b8d0891dd9930c8d92/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+65-->[androidx.emoji2:emoji2:1.3.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/e96811cde0d02f53d485e398a0c74e38/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
 66                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-66-->[androidx.emoji2:emoji2:1.3.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/6b777ac2430fa4b8d0891dd9930c8d92/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+66-->[androidx.emoji2:emoji2:1.3.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/e96811cde0d02f53d485e398a0c74e38/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
 67                android:value="androidx.startup" />
-67-->[androidx.emoji2:emoji2:1.3.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/6b777ac2430fa4b8d0891dd9930c8d92/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+67-->[androidx.emoji2:emoji2:1.3.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/e96811cde0d02f53d485e398a0c74e38/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
 68            <meta-data
-68-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/5796544bce717a0568c4d631bb147717/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
+68-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/5f88627dfd50356cf2bd13a3bd457ee3/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:29:13-31:52
 69                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-69-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/5796544bce717a0568c4d631bb147717/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
+69-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/5f88627dfd50356cf2bd13a3bd457ee3/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:30:17-78
 70                android:value="androidx.startup" />
-70-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/5796544bce717a0568c4d631bb147717/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
+70-->[androidx.lifecycle:lifecycle-process:2.7.0] /Users/sudipkumarprasad/.gradle/caches/transforms-3/5f88627dfd50356cf2bd13a3bd457ee3/transformed/lifecycle-process-2.7.0/AndroidManifest.xml:31:17-49
 71            <meta-data
-71-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+71-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
 72                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
-72-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+72-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
 73                android:value="androidx.startup" />
-73-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+73-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
 74        </provider>
 75
 76        <activity
-76-->[androidx.compose.ui:ui-test-manifest:1.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/825ce05b6eefabbc7c6c79f8dc00f8d3/transformed/ui-test-manifest-1.6.1/AndroidManifest.xml:23:9-25:39
+76-->[androidx.compose.ui:ui-test-manifest:1.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/b4c5afebde445511cfb086ef14b05863/transformed/ui-test-manifest-1.6.1/AndroidManifest.xml:23:9-25:39
 77            android:name="androidx.activity.ComponentActivity"
-77-->[androidx.compose.ui:ui-test-manifest:1.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/825ce05b6eefabbc7c6c79f8dc00f8d3/transformed/ui-test-manifest-1.6.1/AndroidManifest.xml:24:13-63
+77-->[androidx.compose.ui:ui-test-manifest:1.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/b4c5afebde445511cfb086ef14b05863/transformed/ui-test-manifest-1.6.1/AndroidManifest.xml:24:13-63
 78            android:exported="true" />
-78-->[androidx.compose.ui:ui-test-manifest:1.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/825ce05b6eefabbc7c6c79f8dc00f8d3/transformed/ui-test-manifest-1.6.1/AndroidManifest.xml:25:13-36
+78-->[androidx.compose.ui:ui-test-manifest:1.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/b4c5afebde445511cfb086ef14b05863/transformed/ui-test-manifest-1.6.1/AndroidManifest.xml:25:13-36
 79        <activity
-79-->[androidx.compose.ui:ui-tooling-android:1.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/e25faec066a3585f41052b88f9d55deb/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
+79-->[androidx.compose.ui:ui-tooling-android:1.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/67747b73635c6eaa415b6da156fdae58/transformed/ui-tooling-release/AndroidManifest.xml:23:9-25:39
 80            android:name="androidx.compose.ui.tooling.PreviewActivity"
-80-->[androidx.compose.ui:ui-tooling-android:1.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/e25faec066a3585f41052b88f9d55deb/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
+80-->[androidx.compose.ui:ui-tooling-android:1.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/67747b73635c6eaa415b6da156fdae58/transformed/ui-tooling-release/AndroidManifest.xml:24:13-71
 81            android:exported="true" />
-81-->[androidx.compose.ui:ui-tooling-android:1.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/e25faec066a3585f41052b88f9d55deb/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
+81-->[androidx.compose.ui:ui-tooling-android:1.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/67747b73635c6eaa415b6da156fdae58/transformed/ui-tooling-release/AndroidManifest.xml:25:13-36
 82
 83        <service
-83-->[androidx.room:room-runtime:2.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/3458878f21886b3b35fecb3ce6dca270/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
+83-->[androidx.room:room-runtime:2.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/49f792dc2c51974d3fe5e27e8cf6c189/transformed/room-runtime-2.6.1/AndroidManifest.xml:24:9-28:63
 84            android:name="androidx.room.MultiInstanceInvalidationService"
-84-->[androidx.room:room-runtime:2.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/3458878f21886b3b35fecb3ce6dca270/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
+84-->[androidx.room:room-runtime:2.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/49f792dc2c51974d3fe5e27e8cf6c189/transformed/room-runtime-2.6.1/AndroidManifest.xml:25:13-74
 85            android:directBootAware="true"
-85-->[androidx.room:room-runtime:2.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/3458878f21886b3b35fecb3ce6dca270/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
+85-->[androidx.room:room-runtime:2.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/49f792dc2c51974d3fe5e27e8cf6c189/transformed/room-runtime-2.6.1/AndroidManifest.xml:26:13-43
 86            android:exported="false" />
-86-->[androidx.room:room-runtime:2.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/3458878f21886b3b35fecb3ce6dca270/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
+86-->[androidx.room:room-runtime:2.6.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/49f792dc2c51974d3fe5e27e8cf6c189/transformed/room-runtime-2.6.1/AndroidManifest.xml:27:13-37
 87
 88        <receiver
-88-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
 89            android:name="androidx.profileinstaller.ProfileInstallReceiver"
-89-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+89-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
 90            android:directBootAware="false"
-90-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+90-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
 91            android:enabled="true"
-91-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+91-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
 92            android:exported="true"
-92-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+92-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
 93            android:permission="android.permission.DUMP" >
-93-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+93-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
 94            <intent-filter>
-94-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+94-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
 95                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
-95-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
-95-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+95-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+95-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
 96            </intent-filter>
 97            <intent-filter>
-97-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+97-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
 98                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
-98-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
-98-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+98-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+98-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
 99            </intent-filter>
 100            <intent-filter>
-100-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+100-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
 101                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
-101-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
-101-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+101-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+101-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
 102            </intent-filter>
 103            <intent-filter>
-103-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+103-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
 104                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
-104-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
-104-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/057a2929104445e70372af6e74207547/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+104-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+104-->[androidx.profileinstaller:profileinstaller:1.3.1] /Users/sudipkumarprasad/.gradle/caches/transforms-3/21efaf0e5bff8e598a8d34a2a95d2036/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
 105            </intent-filter>
 106        </receiver>
 107    </application>

@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.weathersnap.app-mergeDebugResources-67:/values-night-v8/values-night-v8.xml",
+            "outputFile": "com.weathersnap.app-mergeDebugResources-69:/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/sudipkumarprasad/.gradle/caches/transforms-3/b51b29dcd4b747f4de12b42016631175/transformed/appcompat-1.6.1/res/values-night-v8/values-night-v8.xml",
+                    "source": "/Users/sudipkumarprasad/.gradle/caches/transforms-3/1607c09e82384655cca3867a944b1216/transformed/appcompat-1.6.1/res/values-night-v8/values-night-v8.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,7,8,9",
                         "startColumns": "4,4,4,4,4,4,4,4",

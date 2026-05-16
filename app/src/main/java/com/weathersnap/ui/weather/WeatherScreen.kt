@@ -75,22 +75,24 @@ fun WeatherScreen(
             )
 
             Box(modifier = Modifier.fillMaxWidth().zIndex(1f)) {
-                AnimatedVisibility(
-                    visible = suggestions.isNotEmpty(),
-                    enter = fadeIn() + slideInVertically(),
-                    exit = fadeOut() + slideOutVertically()
-                ) {
-                    ElevatedCard(
-                        modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
-                        shape = RoundedCornerShape(12.dp)
+                Column {
+                    AnimatedVisibility(
+                        visible = suggestions.isNotEmpty(),
+                        enter = fadeIn() + slideInVertically(),
+                        exit = fadeOut() + slideOutVertically()
                     ) {
-                        LazyColumn(modifier = Modifier.heightIn(max = 200.dp)) {
-                            items(suggestions) { city ->
-                                ListItem(
-                                    headlineContent = { Text(city.name) },
-                                    supportingContent = { Text("${city.admin1 ?: ""}, ${city.country}") },
-                                    modifier = Modifier.clickable { viewModel.onCitySelected(city) }
-                                )
+                        ElevatedCard(
+                            modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
+                            shape = RoundedCornerShape(12.dp)
+                        ) {
+                            LazyColumn(modifier = Modifier.heightIn(max = 200.dp)) {
+                                items(suggestions) { city ->
+                                    ListItem(
+                                        headlineContent = { Text(city.name) },
+                                        supportingContent = { Text("${city.admin1 ?: ""}, ${city.country}") },
+                                        modifier = Modifier.clickable { viewModel.onCitySelected(city) }
+                                    )
+                                }
                             }
                         }
                     }
