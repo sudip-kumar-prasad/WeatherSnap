@@ -3,6 +3,7 @@ package com.weathersnap.ui.weather
 import androidx.compose.animation.*
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
+import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -144,19 +145,36 @@ fun WeatherScreen(
                         enter = fadeIn() + slideInVertically(),
                         exit = fadeOut() + slideOutVertically()
                     ) {
-                        ElevatedCard(
-                            modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
-                            shape = RoundedCornerShape(12.dp),
-                            colors = CardDefaults.elevatedCardColors(containerColor = Color(0xFF2D3126))
+                        Card(
+                            modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
+                            shape = RoundedCornerShape(24.dp),
+                            colors = CardDefaults.cardColors(containerColor = Color(0xFF2D3126))
                         ) {
-                            LazyColumn(modifier = Modifier.heightIn(max = 200.dp)) {
-                                items(suggestions) { city ->
-                                    ListItem(
-                                        headlineContent = { Text(city.name, color = Color.White) },
-                                        supportingContent = { Text("${city.admin1 ?: ""}, ${city.country}", color = Color.Gray) },
-                                        modifier = Modifier.clickable { viewModel.onCitySelected(city) },
-                                        colors = ListItemDefaults.colors(containerColor = Color.Transparent)
-                                    )
+                            Column(
+                                modifier = Modifier.padding(16.dp),
+                                verticalArrangement = Arrangement.spacedBy(10.dp)
+                            ) {
+                                suggestions.forEach { city ->
+                                    Box(
+                                        modifier = Modifier
+                                            .fillMaxWidth()
+                                            .height(56.dp)
+                                            .border(
+                                                width = 1.dp,
+                                                color = Color(0xFF44483D),
+                                                shape = RoundedCornerShape(28.dp)
+                                            )
+                                            .clip(RoundedCornerShape(28.dp))
+                                            .clickable { viewModel.onCitySelected(city) }
+                                            .background(Color(0xFF23261D)),
+                                        contentAlignment = Alignment.Center
+                                    ) {
+                                        Text(
+                                            text = "${city.name}, ${city.country}",
+                                            color = Color.White.copy(alpha = 0.8f),
+                                            style = MaterialTheme.typography.bodyLarge
+                                        )
+                                    }
                                 }
                             }
                         }
