@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class ReportsViewModel @Inject constructor(
-    repository: ReportRepository
+    private val repository: ReportRepository
 ) : ViewModel() {
 
     val reports: StateFlow<List<Report>> = repository.getAllReports()
