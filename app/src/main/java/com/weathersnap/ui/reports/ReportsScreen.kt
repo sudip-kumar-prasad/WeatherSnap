@@ -8,6 +8,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.History
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -66,7 +67,7 @@ fun ReportsScreen(
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 items(reports, key = { it.id }) { report ->
-                    ReportItem(report)
+                    ReportItem(report, onDelete = { viewModel.deleteReport(report) })
                 }
             }
         }
@@ -74,7 +75,7 @@ fun ReportsScreen(
 }
 
 @Composable
-fun ReportItem(report: Report) {
+fun ReportItem(report: Report, onDelete: () -> Unit) {
     val dateFormat = remember { SimpleDateFormat("dd MMM yyyy, HH:mm", Locale.getDefault()) }
     
     ElevatedCard(
@@ -99,11 +100,18 @@ fun ReportItem(report: Report) {
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
-                    Text(report.cityName, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
-                    Text("${report.temperature.toInt()}°C", style = MaterialTheme.typography.headlineSmall, color = MaterialTheme.colorScheme.primary)
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(report.cityName, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
+                        Text(report.condition, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.secondary)
+                    }
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text("${report.temperature.toInt()}°C", style = MaterialTheme.typography.headlineSmall, color = MaterialTheme.colorScheme.primary)
+                        Spacer(modifier = Modifier.width(8.dp))
+                        IconButton(onClick = onDelete) {
+                            Icon(Icons.Default.Delete, contentDescription = "Delete", tint = MaterialTheme.colorScheme.error)
+                        }
+                    }
                 }
-                
-                Text(report.condition, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.secondary)
                 
                 Spacer(modifier = Modifier.height(8.dp))
                 

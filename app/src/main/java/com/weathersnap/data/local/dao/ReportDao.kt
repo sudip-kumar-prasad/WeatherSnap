@@ -13,4 +13,7 @@ interface ReportDao {
 
     @Query("SELECT * FROM reports ORDER BY timestamp DESC")
     fun getAllReports(): Flow<List<ReportEntity>>
+
+    @Query("DELETE FROM reports WHERE id = :reportId")
+    suspend fun deleteReport(reportId: Long)
 }

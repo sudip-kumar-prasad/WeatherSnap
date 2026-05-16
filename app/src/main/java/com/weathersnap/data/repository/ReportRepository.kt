@@ -24,6 +24,20 @@ class ReportRepository @Inject constructor(
         reportDao.insert(report.toEntity())
     }
 
+    suspend fun deleteReport(report: Report) = withContext(Dispatchers.IO) {
+        // Delete from DB
+        reportDao.deleteReport(report.id)
+        // Delete image file from disk
+        try {
+            val file = java.io.File(report.imagePath)
+            if (file.exists()) {
+                file.delete()
+            }
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
+
     private fun ReportEntity.toDomain() = Report(
         id = id,
         cityName = cityName,

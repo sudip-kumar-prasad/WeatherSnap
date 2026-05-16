@@ -8,6 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.stateIn
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
@@ -17,4 +18,10 @@ class ReportsViewModel @Inject constructor(
 
     val reports: StateFlow<List<Report>> = repository.getAllReports()
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
+
+    fun deleteReport(report: Report) {
+        viewModelScope.launch {
+            repository.deleteReport(report)
+        }
+    }
 }
