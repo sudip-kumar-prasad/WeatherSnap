@@ -11,6 +11,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Cloud
 import androidx.compose.material.icons.filled.Error
+import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -48,6 +49,11 @@ fun WeatherScreen(
                             style = MaterialTheme.typography.bodySmall,
                             color = MaterialTheme.colorScheme.secondary
                         )
+                    }
+                },
+                actions = {
+                    IconButton(onClick = onNavigateToReports) {
+                        Icon(Icons.Default.History, contentDescription = "Saved Reports")
                     }
                 }
             )
