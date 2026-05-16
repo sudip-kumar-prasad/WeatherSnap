@@ -36,38 +36,113 @@ fun ReportsScreen(
     val reports by viewModel.reports.collectAsState()
 
     Scaffold(
-        topBar = {
-            CenterAlignedTopAppBar(
-                title = {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text("Saved Reports")
+        containerColor = Color(0xFF1A1C14) // Dark Forest Background
+    ) { padding ->
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(padding)
+                .padding(16.dp)
+                .verticalScroll(rememberScrollState()),
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            // 1. Header Card (Matching Home)
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(24.dp),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFFC4D596))
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(
+                            brush = Brush.linearGradient(
+                                colors = listOf(Color(0xFFE2F4A6), Color(0xFF94A56E))
+                            )
+                        )
+                        .padding(24.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column(modifier = Modifier.weight(1f)) {
                         Text(
-                            "${reports.size} report(s) saved",
-                            style = MaterialTheme.typography.labelSmall,
-                            color = MaterialTheme.colorScheme.secondary
+                            "My Reports",
+                            style = MaterialTheme.typography.headlineMedium,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF1A1C14)
+                        )
+                        Text(
+                            "${reports.size} saved weather snapshots",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color(0xFF1A1C14).copy(alpha = 0.7f)
                         )
                     }
-                },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
+                    IconButton(
+                        onClick = onBack,
+                        colors = IconButtonDefaults.iconButtonColors(containerColor = Color(0xFF38431E))
+                    ) {
+                        Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Color.White)
                     }
                 }
-            )
-        }
-    ) { padding ->
-        if (reports.isEmpty()) {
-            EmptyState()
-        } else {
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(padding),
-                contentPadding = PaddingValues(16.dp),
-                verticalArrangement = Arrangement.spacedBy(16.dp)
-            ) {
-                items(reports, key = { it.id }) { report ->
-                    ReportItem(report, onDelete = { viewModel.deleteReport(report) })
+            }
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            if (reports.isEmpty()) {
+                // 2. Styled Empty State (Matching Home)
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(24.dp),
+                    colors = CardDefaults.cardColors(containerColor = Color(0xFF2D3126))
+                ) {
+                    Column(modifier = Modifier.padding(20.dp)) {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .height(200.dp)
+                                .background(
+                                    brush = Brush.linearGradient(
+                                        colors = listOf(Color(0xFF4A5534), Color(0xFF1E352F))
+                                    ),
+                                    shape = RoundedCornerShape(16.dp)
+                                ),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Column(horizontalAlignment = Alignment.CenterHorizontally) {
+                                Icon(
+                                    Icons.Default.History,
+                                    contentDescription = null,
+                                    modifier = Modifier.size(48.dp),
+                                    tint = Color.White.copy(alpha = 0.4f)
+                                )
+                                Spacer(modifier = Modifier.height(12.dp))
+                                Text(
+                                    "No Reports Yet",
+                                    style = MaterialTheme.typography.titleMedium,
+                                    color = Color.White.copy(alpha = 0.7f)
+                                )
+                            }
+                        }
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Text(
+                            "History is empty",
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.Bold,
+                            color = Color.White
+                        )
+                        Text(
+                            "Captured weather reports with camera evidence will appear here for your records.",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color.Gray
+                        )
+                    }
+                }
+            } else {
+                // 3. Reports List
+                Column(verticalArrangement = Arrangement.spacedBy(16.dp)) {
+                    reports.forEach { report ->
+                        ReportItem(report, onDelete = { viewModel.deleteReport(report) })
+                    }
                 }
             }
         }
@@ -78,92 +153,94 @@ fun ReportsScreen(
 fun ReportItem(report: Report, onDelete: () -> Unit) {
     val dateFormat = remember { SimpleDateFormat("dd MMM yyyy, HH:mm", Locale.getDefault()) }
     
-    ElevatedCard(
+    Card(
         modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.elevatedCardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
+        shape = RoundedCornerShape(24.dp),
+        colors = CardDefaults.cardColors(containerColor = Color(0xFF23261D))
     ) {
         Column {
-            AsyncImage(
-                model = File(report.imagePath),
-                contentDescription = "Report Image",
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(200.dp)
-                    .clip(RoundedCornerShape(topStart = 16.dp, topEnd = 16.dp)),
-                contentScale = ContentScale.Crop
-            )
+            Box {
+                AsyncImage(
+                    model = File(report.imagePath),
+                    contentDescription = "Report Image",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .height(220.dp)
+                        .clip(RoundedCornerShape(topStart = 24.dp, topEnd = 24.dp)),
+                    contentScale = ContentScale.Crop
+                )
+                Surface(
+                    modifier = Modifier.padding(12.dp).align(Alignment.TopEnd),
+                    shape = RoundedCornerShape(12.dp),
+                    color = Color.Black.copy(alpha = 0.5f)
+                ) {
+                    IconButton(onClick = onDelete, modifier = Modifier.size(40.dp)) {
+                        Icon(Icons.Default.Delete, contentDescription = "Delete", tint = Color.Red, modifier = Modifier.size(20.dp))
+                    }
+                }
+            }
             
-            Column(modifier = Modifier.padding(16.dp)) {
+            Column(modifier = Modifier.padding(20.dp)) {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Column(modifier = Modifier.weight(1f)) {
-                        Text(report.cityName, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold)
-                        Text(report.condition, style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.secondary)
+                        Text(report.cityName, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold, color = Color.White)
+                        Text(report.condition, style = MaterialTheme.typography.bodyMedium, color = Color(0xFFC4D596))
                     }
-                    Row(verticalAlignment = Alignment.CenterVertically) {
-                        Text("${report.temperature.toInt()}°C", style = MaterialTheme.typography.headlineSmall, color = MaterialTheme.colorScheme.primary)
-                        Spacer(modifier = Modifier.width(8.dp))
-                        IconButton(onClick = onDelete) {
-                            Icon(Icons.Default.Delete, contentDescription = "Delete", tint = MaterialTheme.colorScheme.error)
-                        }
-                    }
+                    Text("${report.temperature.toInt()}°C", style = MaterialTheme.typography.headlineMedium, color = Color(0xFFC4D596))
                 }
                 
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(12.dp))
                 
                 Text(
                     dateFormat.format(Date(report.timestamp)),
                     style = MaterialTheme.typography.labelSmall,
-                    color = MaterialTheme.colorScheme.secondary
+                    color = Color.Gray
                 )
-                
-                Spacer(modifier = Modifier.height(12.dp))
-                
-                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-                    Badge(containerColor = MaterialTheme.colorScheme.secondary.copy(alpha = 0.1f)) {
-                        Text("Original: ${report.originalSizeBytes / 1024} KB", modifier = Modifier.padding(4.dp))
-                    }
-                    Badge(containerColor = MaterialTheme.colorScheme.primary.copy(alpha = 0.1f)) {
-                        Text("Compressed: ${report.compressedSizeBytes / 1024} KB", modifier = Modifier.padding(4.dp), color = MaterialTheme.colorScheme.primary)
-                    }
-                }
                 
                 if (report.notes.isNotEmpty()) {
                     Spacer(modifier = Modifier.height(12.dp))
                     Text(
                         report.notes,
                         style = MaterialTheme.typography.bodySmall,
+                        color = Color.White.copy(alpha = 0.8f),
                         modifier = Modifier
                             .fillMaxWidth()
-                            .background(MaterialTheme.colorScheme.background.copy(alpha = 0.5f), RoundedCornerShape(8.dp))
-                            .padding(8.dp)
+                            .background(Color.White.copy(alpha = 0.05f), RoundedCornerShape(12.dp))
+                            .padding(12.dp)
                     )
                 }
-            }
-        }
-    }
-}
 
-@Composable
-fun EmptyState() {
-    Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Icon(
-                Icons.Default.History,
-                contentDescription = null,
-                modifier = Modifier.size(64.dp),
-                tint = MaterialTheme.colorScheme.secondary.copy(alpha = 0.4f)
-            )
-            Spacer(modifier = Modifier.height(16.dp))
-            Text(
-                "No reports saved yet",
-                style = MaterialTheme.typography.bodyLarge,
-                color = MaterialTheme.colorScheme.secondary.copy(alpha = 0.6f)
-            )
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Surface(
+                        shape = RoundedCornerShape(8.dp),
+                        color = Color(0xFFC4D596).copy(alpha = 0.1f)
+                    ) {
+                        Text(
+                            "Original: ${report.originalSizeBytes / 1024} KB",
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = Color(0xFFC4D596)
+                        )
+                    }
+                    Surface(
+                        shape = RoundedCornerShape(8.dp),
+                        color = Color(0xFFC4D596).copy(alpha = 0.2f)
+                    ) {
+                        Text(
+                            "Compressed: ${report.compressedSizeBytes / 1024} KB",
+                            modifier = Modifier.padding(horizontal = 8.dp, vertical = 4.dp),
+                            style = MaterialTheme.typography.labelSmall,
+                            color = Color(0xFFE2F4A6)
+                        )
+                    }
+                }
+            }
         }
     }
 }

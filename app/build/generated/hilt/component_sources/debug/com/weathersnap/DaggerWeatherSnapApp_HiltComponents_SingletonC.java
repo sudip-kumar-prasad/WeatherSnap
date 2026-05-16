@@ -400,17 +400,17 @@ public final class DaggerWeatherSnapApp_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
-      static String com_weathersnap_ui_weather_WeatherViewModel = "com.weathersnap.ui.weather.WeatherViewModel";
-
       static String com_weathersnap_ui_reports_ReportsViewModel = "com.weathersnap.ui.reports.ReportsViewModel";
+
+      static String com_weathersnap_ui_weather_WeatherViewModel = "com.weathersnap.ui.weather.WeatherViewModel";
 
       static String com_weathersnap_ui_createreport_CreateReportViewModel = "com.weathersnap.ui.createreport.CreateReportViewModel";
 
       @KeepFieldType
-      WeatherViewModel com_weathersnap_ui_weather_WeatherViewModel2;
+      ReportsViewModel com_weathersnap_ui_reports_ReportsViewModel2;
 
       @KeepFieldType
-      ReportsViewModel com_weathersnap_ui_reports_ReportsViewModel2;
+      WeatherViewModel com_weathersnap_ui_weather_WeatherViewModel2;
 
       @KeepFieldType
       CreateReportViewModel com_weathersnap_ui_createreport_CreateReportViewModel2;
@@ -462,20 +462,20 @@ public final class DaggerWeatherSnapApp_HiltComponents_SingletonC {
 
     @IdentifierNameString
     private static final class LazyClassKeyProvider {
-      static String com_weathersnap_ui_createreport_CreateReportViewModel = "com.weathersnap.ui.createreport.CreateReportViewModel";
-
       static String com_weathersnap_ui_reports_ReportsViewModel = "com.weathersnap.ui.reports.ReportsViewModel";
 
       static String com_weathersnap_ui_weather_WeatherViewModel = "com.weathersnap.ui.weather.WeatherViewModel";
 
-      @KeepFieldType
-      CreateReportViewModel com_weathersnap_ui_createreport_CreateReportViewModel2;
+      static String com_weathersnap_ui_createreport_CreateReportViewModel = "com.weathersnap.ui.createreport.CreateReportViewModel";
 
       @KeepFieldType
       ReportsViewModel com_weathersnap_ui_reports_ReportsViewModel2;
 
       @KeepFieldType
       WeatherViewModel com_weathersnap_ui_weather_WeatherViewModel2;
+
+      @KeepFieldType
+      CreateReportViewModel com_weathersnap_ui_createreport_CreateReportViewModel2;
     }
 
     private static final class SwitchingProvider<T> implements Provider<T> {
