@@ -52,6 +52,12 @@ class WeatherViewModel @Inject constructor(
             .filter { it.length > 2 }
             .distinctUntilChanged()
             .onEach { q ->
+                // Don't search for suggestions if the query matches the selected city
+                if (q == selectedCity?.name) {
+                    _suggestions.value = emptyList()
+                    return@onEach
+                }
+                
                 if (suggestionsCache.containsKey(q)) {
                     _suggestions.value = suggestionsCache[q]!!
                 } else {
