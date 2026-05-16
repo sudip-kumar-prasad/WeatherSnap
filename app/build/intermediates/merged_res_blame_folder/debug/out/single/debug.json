@@ -1,10 +1,26 @@
 [
     {
-        "merged": "com.weathersnap.app-merged_res-69:/xml_data_extraction_rules.xml.flat",
-        "source": "com.weathersnap.app-main-71:/xml/data_extraction_rules.xml"
+        "merged": "com.weathersnap.app-merged_res-69:/drawable_ic_launcher_foreground.xml.flat",
+        "source": "com.weathersnap.app-main-71:/drawable/ic_launcher_foreground.xml"
     },
     {
-        "merged": "com.weathersnap.app-merged_res-69:/xml_backup_rules.xml.flat",
-        "source": "com.weathersnap.app-main-71:/xml/backup_rules.xml"
+        "merged": "com.weathersnap.app-merged_res-69:/mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "com.weathersnap.app-main-71:/mipmap-anydpi-v26/ic_launcher_round.xml"
+    },
+    {
+        "merged": "/Users/sudipkumarprasad/.gradle/daemon/8.2/com.weathersnap.app-merged_res-69:/xml_backup_rules.xml.flat",
+        "source": "/Users/sudipkumarprasad/.gradle/daemon/8.2/com.weathersnap.app-main-71:/xml/backup_rules.xml"
+    },
+    {
+        "merged": "com.weathersnap.app-merged_res-69:/mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "com.weathersnap.app-main-71:/mipmap-anydpi-v26/ic_launcher.xml"
+    },
+    {
+        "merged": "com.weathersnap.app-merged_res-69:/drawable_ic_launcher_background.xml.flat",
+        "source": "com.weathersnap.app-main-71:/drawable/ic_launcher_background.xml"
+    },
+    {
+        "merged": "/Users/sudipkumarprasad/.gradle/daemon/8.2/com.weathersnap.app-merged_res-69:/xml_data_extraction_rules.xml.flat",
+        "source": "/Users/sudipkumarprasad/.gradle/daemon/8.2/com.weathersnap.app-main-71:/xml/data_extraction_rules.xml"
     }
 ]
