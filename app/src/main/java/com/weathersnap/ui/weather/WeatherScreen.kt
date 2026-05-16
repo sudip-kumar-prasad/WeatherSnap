@@ -119,7 +119,7 @@ fun WeatherScreen(
                         )
                         Spacer(modifier = Modifier.width(12.dp))
                         Button(
-                            onClick = { /* ViewModel handles this via suggestions */ },
+                            onClick = { viewModel.searchWeather() },
                             modifier = Modifier.height(56.dp),
                             colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFC4D596)),
                             shape = RoundedCornerShape(28.dp)

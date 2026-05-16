@@ -42,6 +42,8 @@ class WeatherViewModel @Inject constructor(
     private val _uiState = MutableStateFlow<WeatherUiState>(WeatherUiState.Idle)
     val uiState = _uiState.asStateFlow()
 
+    private var selectedCity: City? = null
+
     private val suggestionsCache = HashMap<String, List<City>>()
 
     init {
@@ -75,7 +77,11 @@ class WeatherViewModel @Inject constructor(
     fun onCitySelected(city: City) {
         _suggestions.value = emptyList()
         _query.value = city.name
-        fetchWeather(city)
+        selectedCity = city
+    }
+
+    fun searchWeather() {
+        selectedCity?.let { fetchWeather(it) }
     }
 
     private fun fetchWeather(city: City) {
