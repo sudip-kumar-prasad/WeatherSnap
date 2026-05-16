@@ -19,6 +19,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.zIndex
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -39,49 +40,101 @@ fun WeatherScreen(
     val uiState by viewModel.uiState.collectAsState()
 
     Scaffold(
-        topBar = {
-            CenterAlignedTopAppBar(
-                title = {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text("WeatherSnap", style = MaterialTheme.typography.titleLarge)
-                        Text(
-                            "Live weather reports and camera overlays",
-                            style = MaterialTheme.typography.bodySmall,
-                            color = MaterialTheme.colorScheme.secondary
-                        )
-                    }
-                },
-                actions = {
-                    IconButton(onClick = onNavigateToReports) {
-                        Icon(Icons.Default.History, contentDescription = "Saved Reports")
-                    }
-                }
-            )
-        }
+        containerColor = Color(0xFF1A1C14) // Dark Forest Background
     ) { padding ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(padding)
-                .padding(16.dp),
+                .padding(16.dp)
+                .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            OutlinedTextField(
-                value = query,
-                onValueChange = { viewModel.onQueryChange(it) },
-                label = { Text("City") },
+            // 1. Header Card
+            Card(
                 modifier = Modifier.fillMaxWidth(),
-                leadingIcon = { Icon(Icons.Default.Search, contentDescription = null) },
-                shape = RoundedCornerShape(12.dp)
-            )
-            
-            Text(
-                "Enter more than 2 letters to start city suggestions",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.secondary,
-                modifier = Modifier.padding(top = 4.dp).align(Alignment.Start)
-            )
+                shape = RoundedCornerShape(24.dp),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFFC4D596))
+            ) {
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(
+                            brush = Brush.linearGradient(
+                                colors = listOf(Color(0xFFE2F4A6), Color(0xFF94A56E))
+                            )
+                        )
+                        .padding(24.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            "WeatherSnap",
+                            style = MaterialTheme.typography.headlineMedium,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF1A1C14)
+                        )
+                        Text(
+                            "Live weather reports with camera evidence",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color(0xFF1A1C14).copy(alpha = 0.7f)
+                        )
+                    }
+                    Button(
+                        onClick = onNavigateToReports,
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF38431E)),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text("Reports", color = Color.White)
+                    }
+                }
+            }
 
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // 2. Search Card
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(24.dp),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFF23261D))
+            ) {
+                Column(modifier = Modifier.padding(20.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        OutlinedTextField(
+                            value = query,
+                            onValueChange = { viewModel.onQueryChange(it) },
+                            label = { Text("City") },
+                            modifier = Modifier.weight(1f),
+                            shape = RoundedCornerShape(12.dp),
+                            colors = OutlinedTextFieldDefaults.colors(
+                                focusedBorderColor = Color(0xFFC4D596),
+                                unfocusedBorderColor = Color(0xFF44483D)
+                            )
+                        )
+                        Spacer(modifier = Modifier.width(12.dp))
+                        Button(
+                            onClick = { /* ViewModel handles this via suggestions */ },
+                            modifier = Modifier.height(56.dp),
+                            colors = ButtonDefaults.buttonColors(containerColor = Color(0xFFC4D596)),
+                            shape = RoundedCornerShape(28.dp)
+                        ) {
+                            Text("Search", color = Color(0xFF1A1C14))
+                        }
+                    }
+                    Text(
+                        "Enter more than 2 letters to start city suggestions.",
+                        style = MaterialTheme.typography.labelSmall,
+                        color = Color(0xFFC4D596).copy(alpha = 0.6f),
+                        modifier = Modifier.padding(top = 8.dp)
+                    )
+                }
+            }
+
+            // City Suggestions (Overlay logic)
             Box(modifier = Modifier.fillMaxWidth().zIndex(1f)) {
                 Column {
                     AnimatedVisibility(
@@ -91,14 +144,16 @@ fun WeatherScreen(
                     ) {
                         ElevatedCard(
                             modifier = Modifier.fillMaxWidth().padding(top = 4.dp),
-                            shape = RoundedCornerShape(12.dp)
+                            shape = RoundedCornerShape(12.dp),
+                            colors = CardDefaults.elevatedCardColors(containerColor = Color(0xFF2D3126))
                         ) {
                             LazyColumn(modifier = Modifier.heightIn(max = 200.dp)) {
                                 items(suggestions) { city ->
                                     ListItem(
-                                        headlineContent = { Text(city.name) },
-                                        supportingContent = { Text("${city.admin1 ?: ""}, ${city.country}") },
-                                        modifier = Modifier.clickable { viewModel.onCitySelected(city) }
+                                        headlineContent = { Text(city.name, color = Color.White) },
+                                        supportingContent = { Text("${city.admin1 ?: ""}, ${city.country}", color = Color.Gray) },
+                                        modifier = Modifier.clickable { viewModel.onCitySelected(city) },
+                                        colors = ListItemDefaults.colors(containerColor = Color.Transparent)
                                     )
                                 }
                             }
@@ -107,44 +162,57 @@ fun WeatherScreen(
                 }
             }
 
-            Spacer(modifier = Modifier.height(24.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
+            // 3. Content Area (Idle/Success/Loading)
             AnimatedContent(
                 targetState = uiState,
-                transitionSpec = {
-                    (fadeIn(animationSpec = tween(500, delayMillis = 90)) + scaleIn(initialScale = 0.92f, animationSpec = tween(500, delayMillis = 90)))
-                        .togetherWith(fadeOut(animationSpec = tween(90)))
-                },
+                transitionSpec = { fadeIn() togetherWith fadeOut() },
                 label = "WeatherState"
             ) { state ->
                 when (state) {
                     is WeatherUiState.Idle -> {
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            verticalArrangement = Arrangement.Center,
-                            modifier = Modifier.fillMaxWidth().weight(1f)
+                        Card(
+                            modifier = Modifier.fillMaxWidth(),
+                            shape = RoundedCornerShape(24.dp),
+                            colors = CardDefaults.cardColors(containerColor = Color(0xFF2D3126))
                         ) {
-                            Icon(
-                                Icons.Default.Cloud,
-                                contentDescription = null,
-                                modifier = Modifier.size(80.dp),
-                                tint = MaterialTheme.colorScheme.secondary.copy(alpha = 0.4f)
-                            )
-                            Text(
-                                "Search for a city to see weather",
-                                color = MaterialTheme.colorScheme.secondary.copy(alpha = 0.6f)
-                            )
+                            Column(modifier = Modifier.padding(20.dp)) {
+                                Box(
+                                    modifier = Modifier
+                                        .fillMaxWidth()
+                                        .height(160.dp)
+                                        .background(
+                                            brush = Brush.linearGradient(
+                                                colors = listOf(Color(0xFF4A5534), Color(0xFF1E352F))
+                                            ),
+                                            shape = RoundedCornerShape(16.dp)
+                                        ),
+                                    contentAlignment = Alignment.Center
+                                ) {
+                                    Text(
+                                        "Search. Capture. Save.",
+                                        style = MaterialTheme.typography.titleMedium,
+                                        color = Color.White.copy(alpha = 0.7f)
+                                    )
+                                }
+                                Spacer(modifier = Modifier.height(16.dp))
+                                Text(
+                                    "No weather loaded",
+                                    style = MaterialTheme.typography.titleMedium,
+                                    fontWeight = FontWeight.Bold,
+                                    color = Color.White
+                                )
+                                Text(
+                                    "Enter more than 2 letters, choose a city, then search.",
+                                    style = MaterialTheme.typography.bodySmall,
+                                    color = Color.Gray
+                                )
+                            }
                         }
                     }
                     is WeatherUiState.Loading -> {
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            modifier = Modifier.fillMaxWidth().padding(32.dp)
-                        ) {
-                            CircularProgressIndicator()
-                            Spacer(modifier = Modifier.height(16.dp))
-                            Text("Fetching weather...")
-                        }
+                        CircularProgressIndicator(color = Color(0xFFC4D596), modifier = Modifier.padding(32.dp))
                     }
                     is WeatherUiState.Success -> {
                         WeatherCard(
@@ -154,17 +222,8 @@ fun WeatherScreen(
                         )
                     }
                     is WeatherUiState.Error -> {
-                        Column(
-                            horizontalAlignment = Alignment.CenterHorizontally,
-                            modifier = Modifier.fillMaxWidth().padding(32.dp)
-                        ) {
-                            Icon(Icons.Default.Error, contentDescription = null, tint = Color.Red, modifier = Modifier.size(48.dp))
-                            Spacer(modifier = Modifier.height(8.dp))
-                            Text(state.message, color = Color.Red)
-                            Button(onClick = { viewModel.retry() }, modifier = Modifier.padding(top = 16.dp)) {
-                                Text("Retry")
-                            }
-                        }
+                        Text(state.message, color = Color.Red, modifier = Modifier.padding(16.dp))
+                        Button(onClick = { viewModel.retry() }) { Text("Retry") }
                     }
                 }
             }
