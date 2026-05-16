@@ -15,6 +15,8 @@ import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -60,121 +62,194 @@ fun CreateReportScreen(
     }
 
     Scaffold(
-        topBar = {
-            CenterAlignedTopAppBar(
-                title = {
-                    Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                        Text("Create Report")
-                        Text("Capture, compress, annotate", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.secondary)
-                    }
-                },
-                navigationIcon = {
-                    IconButton(onClick = onBack) {
-                        Icon(Icons.Default.ArrowBack, contentDescription = "Back")
-                    }
-                }
-            )
-        }
-    ) { padding ->
+        containerColor = Color(0xFF1A1C14) // Dark Forest Background
+    ) { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(padding)
+                .padding(paddingValues)
                 .padding(16.dp)
                 .verticalScroll(rememberScrollState()),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            weatherData?.let { data ->
-                WeatherCardPreview(data)
-            }
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            ImagePreviewArea(imagePath, onNavigateToCamera)
-
-            if (imagePath != null) {
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(top = 8.dp),
-                    horizontalArrangement = Arrangement.SpaceBetween
-                ) {
-                    Text("Original: ${originalSize / 1024} KB", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.secondary)
-                    Text("Compressed: ${compressedSize / 1024} KB", style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary)
-                }
-            }
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            OutlinedTextField(
-                value = notes,
-                onValueChange = { viewModel.onNotesChange(it) },
-                label = { Text("Field Notes") },
+            // 1. Header Card (Matching Theme)
+            Card(
                 modifier = Modifier.fillMaxWidth(),
-                minLines = 3,
-                maxLines = 5,
-                shape = RoundedCornerShape(12.dp)
-            )
-
-            Spacer(modifier = Modifier.height(32.dp))
-
-            Button(
-                onClick = { viewModel.saveReport(onNavigateToReports) },
-                modifier = Modifier.fillMaxWidth().height(56.dp),
-                enabled = imagePath != null,
-                shape = RoundedCornerShape(16.dp)
+                shape = RoundedCornerShape(24.dp),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFFC4D596))
             ) {
-                Text("Save Report", style = MaterialTheme.typography.titleMedium)
-            }
-        }
-    }
-}
-
-@Composable
-fun WeatherCardPreview(weather: WeatherData) {
-    ElevatedCard(
-        modifier = Modifier.fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        colors = CardDefaults.elevatedCardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
-    ) {
-        Row(
-            modifier = Modifier.padding(16.dp),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Column(modifier = Modifier.weight(1f)) {
-                Text(weather.cityName, style = MaterialTheme.typography.titleMedium, fontWeight = FontWeight.Bold)
-                Text(weather.condition, style = MaterialTheme.typography.bodySmall, color = MaterialTheme.colorScheme.primary)
-            }
-            Text("${weather.temperature.toInt()}°C", style = MaterialTheme.typography.headlineSmall)
-        }
-    }
-}
-
-@Composable
-fun ImagePreviewArea(imagePath: String?, onCapture: () -> Unit) {
-    ElevatedCard(
-        modifier = Modifier.fillMaxWidth().height(200.dp),
-        shape = RoundedCornerShape(16.dp),
-        onClick = onCapture
-    ) {
-        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-            if (imagePath == null) {
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Icon(Icons.Default.PhotoCamera, contentDescription = null, modifier = Modifier.size(48.dp))
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Text("Photo preview", style = MaterialTheme.typography.bodyMedium)
-                    Text("Tap to capture", style = MaterialTheme.typography.labelSmall, color = MaterialTheme.colorScheme.secondary)
-                }
-            } else {
-                Column {
-                    AnimatedVisibility(visible = true, enter = fadeIn()) {
-                        AsyncImage(
-                            model = File(imagePath),
-                            contentDescription = "Captured Photo",
-                            modifier = Modifier.fillMaxSize().clip(RoundedCornerShape(16.dp)),
-                            contentScale = ContentScale.Crop
+                Row(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background(
+                            brush = Brush.linearGradient(
+                                colors = listOf(Color(0xFFE2F4A6), Color(0xFF94A56E))
+                            )
                         )
+                        .padding(24.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Column(modifier = Modifier.weight(1f)) {
+                        Text(
+                            "Create Report",
+                            style = MaterialTheme.typography.headlineMedium,
+                            fontWeight = FontWeight.Bold,
+                            color = Color(0xFF1A1C14)
+                        )
+                        Text(
+                            "Capture, compress, annotate",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = Color(0xFF1A1C14).copy(alpha = 0.7f)
+                        )
+                    }
+                    Button(
+                        onClick = onBack,
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF1A1C14)),
+                        shape = RoundedCornerShape(12.dp)
+                    ) {
+                        Text("Back", color = Color.White)
                     }
                 }
             }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // 2. Weather Details Card
+            weatherData?.let { data ->
+                Card(
+                    modifier = Modifier.fillMaxWidth(),
+                    shape = RoundedCornerShape(24.dp),
+                    colors = CardDefaults.cardColors(containerColor = Color(0xFF23261D))
+                ) {
+                    Column(modifier = Modifier.padding(20.dp)) {
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween,
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Column {
+                                Text(data.cityName, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.Bold, color = Color.White)
+                                Text(data.condition, style = MaterialTheme.typography.bodyMedium, color = Color.Gray)
+                            }
+                            Text("${data.temperature.toInt()}°C", style = MaterialTheme.typography.headlineLarge, color = Color(0xFFC4D596))
+                        }
+
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceBetween
+                        ) {
+                            WeatherStatBox("Humidity", "${data.humidity}%", Color(0xFF4CAF50).copy(alpha = 0.2f), Color(0xFF4CAF50))
+                            WeatherStatBox("Wind", "${data.windSpeed} m/s", Color(0xFF2196F3).copy(alpha = 0.2f), Color(0xFF2196F3))
+                            WeatherStatBox("Pressure", "${data.pressure.toInt()}", Color(0xFFFF9800).copy(alpha = 0.2f), Color(0xFFFF9800))
+                        }
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // 3. Photo Section
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(24.dp),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFF23261D))
+            ) {
+                Column(modifier = Modifier.padding(16.dp)) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(220.dp)
+                            .background(
+                                brush = Brush.linearGradient(
+                                    colors = listOf(Color(0xFF4A5534), Color(0xFF1E352F))
+                                ),
+                                shape = RoundedCornerShape(16.dp)
+                            ),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        if (imagePath != null) {
+                            AsyncImage(
+                                model = File(imagePath!!),
+                                contentDescription = null,
+                                modifier = Modifier.fillMaxSize().clip(RoundedCornerShape(16.dp)),
+                                contentScale = ContentScale.Crop
+                            )
+                        } else {
+                            Text("Photo preview", color = Color.White.copy(alpha = 0.5f))
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    Button(
+                        onClick = onNavigateToCamera,
+                        modifier = Modifier.fillMaxWidth().height(56.dp),
+                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4A5534)),
+                        shape = RoundedCornerShape(28.dp)
+                    ) {
+                        Text("Capture Photo", color = Color.White)
+                    }
+                }
+            }
+
+            Spacer(modifier = Modifier.height(16.dp))
+
+            // 4. Notes Section
+            Card(
+                modifier = Modifier.fillMaxWidth(),
+                shape = RoundedCornerShape(24.dp),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFF23261D))
+            ) {
+                Column(modifier = Modifier.padding(20.dp)) {
+                    Text("Field Notes", style = MaterialTheme.typography.titleSmall, color = Color.Gray)
+                    Spacer(modifier = Modifier.height(8.dp))
+                    OutlinedTextField(
+                        value = notes,
+                        onValueChange = { viewModel.onNotesChange(it) },
+                        modifier = Modifier.fillMaxWidth(),
+                        placeholder = { Text("Enter observations...", color = Color.Gray) },
+                        colors = OutlinedTextFieldDefaults.colors(
+                            focusedBorderColor = Color(0xFFC4D596),
+                            unfocusedBorderColor = Color(0xFF44483D),
+                            focusedTextColor = Color.White,
+                            unfocusedTextColor = Color.White
+                        ),
+                        shape = RoundedCornerShape(12.dp)
+                    )
+                }
+            }
+
+            Spacer(modifier = Modifier.height(24.dp))
+
+            // 5. Save Button
+            Button(
+                onClick = { viewModel.saveReport(onNavigateToReports) },
+                modifier = Modifier.fillMaxWidth().height(64.dp),
+                enabled = imagePath != null,
+                colors = ButtonDefaults.buttonColors(
+                    containerColor = Color(0xFFC4D596),
+                    disabledContainerColor = Color(0xFF2D3126)
+                ),
+                shape = RoundedCornerShape(32.dp)
+            ) {
+                Text("Save Report", style = MaterialTheme.typography.titleMedium, color = Color(0xFF1A1C14))
+            }
         }
+    }
+}
+
+@Composable
+fun WeatherStatBox(label: String, value: String, bgColor: Color, textColor: Color) {
+    Column(
+        modifier = Modifier
+            .width(100.dp)
+            .background(bgColor, RoundedCornerShape(12.dp))
+            .padding(12.dp)
+    ) {
+        Text(label, style = MaterialTheme.typography.labelSmall, color = Color.Gray)
+        Text(value, style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.Bold, color = textColor)
     }
 }
