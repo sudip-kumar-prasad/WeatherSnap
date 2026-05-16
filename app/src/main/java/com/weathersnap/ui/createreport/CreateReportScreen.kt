@@ -187,10 +187,46 @@ fun CreateReportScreen(
                     Button(
                         onClick = onNavigateToCamera,
                         modifier = Modifier.fillMaxWidth().height(56.dp),
-                        colors = ButtonDefaults.buttonColors(containerColor = Color(0xFF4A5534)),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = if (imagePath != null) Color(0xFFC4D596) else Color(0xFF4A5534)
+                        ),
                         shape = RoundedCornerShape(28.dp)
                     ) {
-                        Text("Capture Photo", color = Color.White)
+                        Text(
+                            if (imagePath != null) "Retake Photo" else "Capture Photo",
+                            color = if (imagePath != null) Color(0xFF1A1C14) else Color.White
+                        )
+                    }
+
+                    if (imagePath != null) {
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.spacedBy(12.dp)
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .background(Color(0xFF322A1F), RoundedCornerShape(12.dp))
+                                    .padding(12.dp)
+                            ) {
+                                Column {
+                                    Text("Original", style = MaterialTheme.typography.labelSmall, color = Color.Gray)
+                                    Text("${originalSize / 1024} KB", style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.Bold, color = Color(0xFFE69138))
+                                }
+                            }
+                            Box(
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .background(Color(0xFF1F2D26), RoundedCornerShape(12.dp))
+                                    .padding(12.dp)
+                            ) {
+                                Column {
+                                    Text("Compressed", style = MaterialTheme.typography.labelSmall, color = Color.Gray)
+                                    Text("${compressedSize / 1024} KB", style = MaterialTheme.typography.bodyLarge, fontWeight = FontWeight.Bold, color = Color(0xFF4CAF50))
+                                }
+                            }
+                        }
                     }
                 }
             }
